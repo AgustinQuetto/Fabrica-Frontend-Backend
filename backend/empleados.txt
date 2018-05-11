@@ -1,0 +1,3 @@
+Agustina - Quettos - 12345678 - Masculino - 123 - 12500 - M - ./fotos/12345678-Agustina.png
+Agustino - Quettosama - 12345678 - Masculino - 124 - 12500 - M - ./fotos/12345678-Agustino.png
+Quetto - Agustin - 39172077 - Masculino - 312 - 12000 - T - ./fotos/39172077-Quetto.png
