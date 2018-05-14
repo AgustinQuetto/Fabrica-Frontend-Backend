@@ -49,14 +49,12 @@
         
         public function EliminarEmpleadoPorLegajo($legajo)
         {
-            $index = array_search($legajo, array_column($this->_empleados, 4));
-            $index = array_search($empleado,$this->_empleados);
-            if($index != false)
-            {
-                unset($this->_empleados[$index]);
-                return true;
+            foreach($this->_empleados as $key => $value) {
+                if($value->GetLegajo() === $legajo) {
+                    unset($this->_empleados[$key]);
+                    return true;
+                }
             }
-            return false;
         }  
 
         public function EliminarEmpleadosRepetidos()

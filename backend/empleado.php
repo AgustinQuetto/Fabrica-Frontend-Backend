@@ -11,9 +11,9 @@
         public function __construct($apellido,$nombre,$dni,$sexo,$legajo,$sueldo,$turno)
         {
             parent::__construct($apellido,$nombre,$dni,$sexo);
-            $this->_legajo = $legajo;
-            $this->_sueldo = $sueldo;
-            $this->_turno = $turno;
+            $this->_legajo=$legajo;
+            $this->_sueldo=$sueldo;
+            $this->_turno=$turno;
             $this->_pathFoto = null;
         }
 

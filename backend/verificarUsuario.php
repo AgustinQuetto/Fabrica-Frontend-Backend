@@ -9,7 +9,7 @@ if(isset($_POST['apellido']) && isset($_POST['dni'])) {
             if($_POST['apellido'] == $datoEmpleado[0] && $_POST['dni'] == $datoEmpleado[2]) {
                 session_start();
                 $_SESSION['dniEmpleado'] = $_POST['dni'];
-                header('Location: ../mostrar.php');
+                header('Location: ./mostrar.php');
                 die();
             }
         }
@@ -17,6 +17,6 @@ if(isset($_POST['apellido']) && isset($_POST['dni'])) {
 
     fclose($elArchivo);
     ?>El usuario no ha sido encontrado.<?php
-    ?><a href="../login.html">Volver</a> <?php
+    ?><a href="../login.html" class="btn btn-primary">Volver</a> <?php
 }
 ?>

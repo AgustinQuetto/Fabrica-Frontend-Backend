@@ -6,6 +6,7 @@
     $isReadOnly = isset($_GET['dni']) ? 'readonly' : null;
     $submitText = isset($_GET['dni']) ? 'Modificar' : 'Enviar';
     $modifing = isset($_GET['dni']) ? '1' : null;
+    $photoMessage = isset($_GET['dni']) ? 'Recargar la foto es opcional.' : '';
     
     if (isset($_GET['dni'])) {
         $fabrica = new Fabrica('Empleado te invoco', 7);
@@ -18,10 +19,10 @@
     $imagenActual = isset($_GET['dni']) ? '<img src="./fotos/'.$getRealPathImage[2].'" alt="Foto de '.$empleado[0].' '.$empleado[1].'" width="250px" height="auto">' : null;
 
     if(isset($_GET['dni'])) {
-        if($empleado[3] == 'masculino')
-            $options = '<option value="Masculino" selected>Masculino(M)</option><option value="Femenino">Femenino (F)</option>';
+        if($empleado[3] == 'Masculino')
+            $options = '<option value="Masculino" selected>Masculino (M)</option><option value="Femenino">Femenino (F)</option>';
         else
-            $options = '<option value="Masculino">Masculino(M)</option><option value="Femenino" selected>Femenino (F)</option>';
+            $options = '<option value="Masculino">Masculino (M)</option><option value="Femenino" selected>Femenino (F)</option>';
     } else {
         $options = '<option value="Masculino">Masculino (M)</option><option value="Femenino">Femenino (F)</option>';
     }
@@ -130,17 +131,18 @@
                         <?php echo $imagenActual; ?>
                         <input type="file" name="foto" id="foto" value="<?php echo $modifing; ?>">
                         <span style="display:none">*</span>
+                        <small><?php echo $photoMessage; ?></small>
                     </td>
                 </tr>
                 <tr>
                     <input type="hidden" value="<?php echo $_POST['dni']; ?>" name="hdnModificar"/>
-                    <td><input type="reset" name="btnLimpiar" value="Limpiar" class="btn btn-warning"></td>
+                    <input type="hidden" value="<?php echo $empleado[7]; ?>" name="hdnImagePath"/>
+                    <td><input type="reset" name="btnLimpiar" value="Limpiar" class="btn btn-warning"><a href="./backend/cerrarSesion.php" class="btn btn-info" style="margin-left:5px">Cerrar sesión</a></td>
                     <td><input type="submit" name="btnEnviar" value="<?php echo $submitText; ?>" class="btn btn-success" style="float:right"></td>
                 </tr>
                 
             </table>
         </form>
-        <a href="./backend/cerrarSesion.php">Desloguearse</a>
     </div>
 </body>
 </html>
